@@ -7,11 +7,10 @@ import Sort from '../components/Sort';
 function Home({toggler}) {
     const [isLoading, setIslodaing] = useState(true)
     const [data, setData] = useState([])
+    const [sort, SetSort] = useState()
 
-
-    useEffect(() => 
-    {
-      fetch('https://63aa7b0e7d7edb3ae6290870.mockapi.io/products')
+    const get = (sort, filter) => {
+      fetch(`https://63aa7b0e7d7edb3ae6290870.mockapi.io/products${sort ? '' : ''}`)
       .then((res) => {
         return res.json()
       })
@@ -19,6 +18,11 @@ function Home({toggler}) {
         setData(json)
         setIslodaing(false)
       })
+    }
+
+    useEffect(() => 
+    {
+      
     }, [])
 
     return (

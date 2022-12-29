@@ -1,8 +1,8 @@
-// import { useEffect, useState } from 'react';
-// import { Routes } from 'react-router-dom';
+import { Route, Router, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 import './scss/App.scss';
 
 function toggler(array, state, setState) {
@@ -18,7 +18,13 @@ function App() {
         <div className="wrapper">
             <Header toggler={toggler} />
             <div className="content">
-              <Home toggler={toggler} />
+              {/* <NotFound /> */}
+                <Routes>
+                    <Route path='/' element={<Home toggler={toggler} />} />
+                    <Route path='/cart' element={<Cart />} />
+                    <Route path='*' element={<NotFound />} />
+                </Routes>
+
             </div>
         </div>
     );
